@@ -3,20 +3,50 @@
   "version": "0.1.0",
   "description": "Deterministic fixture pack generator for JSON Schema and local recipes.",
   "type": "module",
-  "main": "./src/index.js",
+  "bin": {
+    "fixturemint": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
   "files": [
-    "src",
-    "README.md"
+    "dist",
+    "examples",
+    "fixtures",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
-    "test": "node --test",
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "npm run build && node --test \"dist/**/*.test.js\"",
+    "smoke": "npm run build && node dist/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke && node dist/cli.js manifest fixtures/smoke --out fixtures/smoke-manifest.json",
     "package:smoke": "npm pack --dry-run",
-    "release:check": "npm test && npm run package:smoke"
+    "release:check": "npm run check && npm test && npm run smoke && npm run package:smoke"
   },
-  "keywords": [],
+  "keywords": [
+    "fixtures",
+    "json-schema",
+    "testing",
+    "cli",
+    "deterministic"
+  ],
   "author": "Roger Chappel",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "yaml": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
 }
