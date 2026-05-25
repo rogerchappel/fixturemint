@@ -1,0 +1,44 @@
+{
+  "$id": "https://example.test/user.schema.json",
+  "title": "User",
+  "type": "object",
+  "required": ["id", "email", "role", "profile"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 9999
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["admin", "member", "viewer"]
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "profile": {
+      "type": "object",
+      "required": ["displayName", "tags"],
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 12
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": ["docs", "cli", "testing"]
+          }
+        }
+      }
+    }
+  }
+}

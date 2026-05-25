@@ -1,0 +1,14 @@
+count: 2
+overrides:
+  active: true
+examples:
+  profile.displayName: "Fixture User"
+files:
+  - name: admin-user.json
+    seed: 42
+    overrides:
+      role: admin
+  - name: viewer-user.json
+    seed: 43
+    overrides:
+      role: viewer
