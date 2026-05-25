@@ -4,20 +4,19 @@
   "description": "Deterministic fixture pack generator for JSON Schema and local recipes.",
   "type": "module",
   "bin": {
-    "fixturemint": "./dist/cli.js"
+    "fixturemint": "./dist/src/cli.js"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
     }
   },
   "files": [
-    "dist",
+    "dist/src",
     "examples",
-    "fixtures",
     "README.md",
     "LICENSE"
   ],
@@ -25,7 +24,7 @@
     "build": "tsc",
     "check": "tsc --noEmit",
     "test": "npm run build && node --test \"dist/**/*.test.js\"",
-    "smoke": "npm run build && node dist/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke && node dist/cli.js manifest fixtures/smoke --out fixtures/smoke-manifest.json",
+    "smoke": "npm run build && node dist/src/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke && node dist/src/cli.js manifest fixtures/smoke --out fixtures/smoke-manifest.json",
     "package:smoke": "npm pack --dry-run",
     "release:check": "npm run check && npm test && npm run smoke && npm run package:smoke"
   },
