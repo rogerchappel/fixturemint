@@ -42,12 +42,14 @@ test('creates a checksum manifest for generated files', async () => {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'fixturemint-'));
   try {
     await writeFile(path.join(dir, 'one.json'), '{"ok":true}\n', 'utf8');
-    const manifest = await createManifest(dir, path.join(dir, 'manifest.json'));
+    const manifestPath = path.join(dir, 'nested', 'manifest.json');
+    const manifest = await createManifest(dir, manifestPath);
 
     assert.equal(manifest.version, 1);
     assert.deepEqual(manifest.files.map((file) => file.path), ['one.json']);
     assert.equal(manifest.files[0]?.bytes, 12);
     assert.match(manifest.files[0]?.sha256 ?? '', /^[a-f0-9]{64}$/);
+    assert.match(await readFile(manifestPath, 'utf8'), /"path": "one.json"/);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
