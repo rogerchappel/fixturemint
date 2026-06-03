@@ -40,6 +40,8 @@ From source, use the built CLI directly:
 node dist/src/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke
 ```
 
+For a full fixture-backed walkthrough, see [docs/tutorials/generate-user-fixtures.md](docs/tutorials/generate-user-fixtures.md). Promotion notes and a short video outline live in [docs/promo/demo-brief.md](docs/promo/demo-brief.md).
+
 ## Verify
 
 Run the local validation script before opening a pull request:
