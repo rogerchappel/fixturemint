@@ -53,6 +53,11 @@ The demo builds the CLI, generates the two example user fixtures into
 See [Generate deterministic API fixtures](docs/tutorials/deterministic-api-fixtures.md)
 for the full recipe.
 
+For an additional fixture-backed walkthrough, see
+[Generate user fixtures](docs/tutorials/generate-user-fixtures.md). Promotion
+notes and short video outlines live in [Demo brief](docs/promo/demo-brief.md)
+and [Video brief](docs/promo/video-brief.md).
+
 ## Verify
 
 Run the local validation script before opening a pull request:
