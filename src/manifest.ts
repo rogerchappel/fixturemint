@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { FixtureManifest, ManifestEntry } from './types.js';
 
@@ -28,6 +28,7 @@ export async function createManifest(dir: string, outPath?: string): Promise<Fix
   };
 
   if (outPath) {
+    await mkdir(path.dirname(outPath), { recursive: true });
     await writeFile(outPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
   }
 

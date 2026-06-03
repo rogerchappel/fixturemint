@@ -40,7 +40,23 @@ From source, use the built CLI directly:
 node dist/src/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke
 ```
 
-For a full fixture-backed walkthrough, see [docs/tutorials/generate-user-fixtures.md](docs/tutorials/generate-user-fixtures.md). Promotion notes and a short video outline live in [docs/promo/demo-brief.md](docs/promo/demo-brief.md).
+## Demo Recipe
+
+Run the fixture-backed demo:
+
+```sh
+bash examples/demo-fixture-pack.sh
+```
+
+The demo builds the CLI, generates the two example user fixtures into
+`tmp/demo-fixtures`, writes a manifest, and prints a compact checksum summary.
+See [Generate deterministic API fixtures](docs/tutorials/deterministic-api-fixtures.md)
+for the full recipe.
+
+For an additional fixture-backed walkthrough, see
+[Generate user fixtures](docs/tutorials/generate-user-fixtures.md). Promotion
+notes and short video outlines live in [Demo brief](docs/promo/demo-brief.md)
+and [Video brief](docs/promo/video-brief.md).
 
 ## Verify
 
