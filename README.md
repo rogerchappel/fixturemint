@@ -106,3 +106,14 @@ These links assume this README has been copied to the generated repository root.
 ## License
 
 MIT
+
+## Release readiness
+
+Before opening a release PR, run the same checks that CI runs:
+
+```sh
+npm run release:check
+npm pack --dry-run
+```
+
+The package smoke keeps the published tarball contents visible before tagging or publishing.
