@@ -29,7 +29,7 @@
     "check": "tsc --noEmit",
     "test": "npm run build && node --test \"dist/**/*.test.js\"",
     "smoke": "npm run build && node dist/src/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke && node dist/src/cli.js manifest fixtures/smoke --out fixtures/smoke-manifest.json",
-    "package:smoke": "npm pack --dry-run",
+    "package:smoke": "bash scripts/package-smoke.sh",
     "release:check": "npm run check && npm run build && npm test && npm run smoke && npm run package:smoke"
   },
   "keywords": [

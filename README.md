@@ -38,6 +38,7 @@ From source, use the built CLI directly:
 
 ```sh
 node dist/src/cli.js generate examples/user.schema.json --recipe examples/user.recipe.yaml --seed 42 --out fixtures/smoke
+node dist/src/cli.js --version
 ```
 
 ## Demo Recipe
@@ -74,6 +75,7 @@ For a smaller loop:
 npm run check
 npm test
 npm run smoke
+npm run package:smoke
 ```
 
 ## Development
@@ -116,4 +118,6 @@ npm run release:check
 npm pack --dry-run
 ```
 
-The package smoke keeps the published tarball contents visible before tagging or publishing.
+The package smoke packs the project, installs the tarball into a temporary app,
+checks the installed `fixturemint` binary version, generates fixtures from the
+packaged examples, and writes a manifest before tagging or publishing.
