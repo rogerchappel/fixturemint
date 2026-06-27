@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+import { createRequire } from 'node:module';
 import { generateFixtures } from './generate.js';
 import { createManifest } from './manifest.js';
+
+const require = createRequire(import.meta.url);
+const { version } = require('../../package.json') as { version: string };
 
 const program = new Command();
 
 program
   .name('fixturemint')
   .description('Generate deterministic fixture packs from JSON Schema and local recipes.')
-  .version('0.1.0');
+  .version(version);
 
 program
   .command('generate')
