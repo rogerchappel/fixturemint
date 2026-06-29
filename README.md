@@ -61,6 +61,12 @@ and [Video brief](docs/promo/video-brief.md).
 
 ## Verify
 
+Run the full local release gate:
+
+```sh
+npm run release:check
+```
+
 Run the local validation script before opening a pull request:
 
 ```sh
