@@ -3,6 +3,20 @@
 Deterministic fixture pack generation for JSON Schema and local YAML/JSON
 recipes.
 
+
+## Quickstart
+
+Run the tool from a fresh checkout:
+
+```sh
+npm install
+npm run build
+node dist/src/cli.js --help
+npm test
+```
+
+The help command confirms the CLI entrypoint is reachable, and `npm test` runs the committed regression suite before you rely on the output.
+
 ## Status
 
 This repository is early-stage. The CLI can generate JSON fixtures and checksum
