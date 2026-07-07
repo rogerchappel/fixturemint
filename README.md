@@ -141,3 +141,7 @@ npm pack --dry-run
 The package smoke packs the project, installs the tarball into a temporary app,
 checks the installed `fixturemint` binary version, generates fixtures from the
 packaged examples, and writes a manifest before tagging or publishing.
+
+## Limitations
+
+fixturemint is a local-first helper for preparing reviewable evidence. It does not replace human review, live system validation, or project-specific policy checks, and generated output should be inspected before use in release or operational decisions.
